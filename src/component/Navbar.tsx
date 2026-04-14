@@ -23,6 +23,7 @@ export default function Navbar() {
 
         const res = await searchApi(value); // 🔥 API CALL
         setResults(res);
+        console.log("Searching:", value);
     };
 
     return (
@@ -44,27 +45,36 @@ export default function Navbar() {
                 </div>
 
                 {/* SEARCH */}
-                <div className="nav-search" style={{ position: "relative" }}>
+                <div className="search-wrapper">
 
-                    <input
-                        type="text"
-                        placeholder="Search dishes or restaurants..."
-                        value={query}
-                        onChange={(e) => handleSearchChange(e.target.value)} // ✅ API TRIGGER
-                    />
+                    <div className="nav-search">
+                        <input
+                            type="text"
+                            placeholder="Search dishes or restaurants..."
+                            value={query}
+                            onChange={(e) => handleSearchChange(e.target.value)}
+                            onBlur={() => {
+                                setTimeout(() => setResults([]), 150);
+                            }}
+                        />
 
-                    <button className="searchBtn">🔍</button>
+                        <button onClick={() => handleSearchChange(query)}>🔍</button>
+                    </div>
 
-                    {/* 🔥 DROPDOWN RESULTS */}
+                    {/* 🔥 MOVE DROPDOWN HERE (OUTSIDE nav-search) */}
                     {results.length > 0 && (
                         <div className="search-dropdown">
                             {results.map((item) => (
                                 <div
                                     key={item.id}
                                     className="search-item"
-                                    onClick={() => navigate(`/search?q=${item.name}`)}
+                                    onMouseDown={() => {
+                                        navigate(`/search?q=${encodeURIComponent(item.name)}&type=${item.type}`);
+                                        setQuery("");
+                                        setResults([]);
+                                    }}
                                 >
-                                    {item.type === "restaurant" ? "🏬" : "🍴"} {item.name}
+                                    {item.type === "restaurant" ? "🏪" : "🍔"} {item.name}
                                 </div>
                             ))}
                         </div>

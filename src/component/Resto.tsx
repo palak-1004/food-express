@@ -1,38 +1,42 @@
+type Food = {
+    name: string
+    price: number
+}
 
+type Restaurant = {
+    id: string
+    name: string
+    location: string
+    foods: Food[]
+}
 
-export default function Resto() {
+type Props = {
+    restaurants: Restaurant[]
+}
+
+export default function Resto({ restaurants }: Props) {
     return (
         <div className="restaurants">
             <h2>Featured Restaurants</h2>
+
             <div className="restaurant-list">
-                <div className="restaurant">
-                    <img src="imgs/1.png" alt="" />
-                    <div className="restaurant-info">
-                        <h3>Spice Hub</h3>
-                        <p>Indian, Chinese • ★★★★☆</p>
+                {restaurants.map((res) => (
+                    <div className="restaurant" key={res.id}>
+                        <img src="imgs/1.png" alt="" />
+
+                        <div className="restaurant-info">
+                            <h3>{res.name}</h3>
+                            <p>{res.location}</p>
+
+                            {/* food*/}
+                            {res.foods?.slice(0, 2).map((food, i) => (
+                                <div key={i}>
+                                    {food.name} - ₹{food.price}
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-                <div className="restaurant">
-                    <img src="imgs/2.png" alt="" />
-                    <div className="restaurant-info">
-                        <h3>Cafe Delight</h3>
-                        <p>Coffee, Bakery • ★★★★☆</p>
-                    </div>
-                </div>
-                <div className="restaurant">
-                    <img src="imgs/3.png" alt="" />
-                    <div className="restaurant-info">
-                        <h3>Burger Town</h3>
-                        <p>Burgers, Fast Food • ★★★★☆</p>
-                    </div>
-                </div>
-                <div className="restaurant">
-                    <img src="imgs/4.png" alt="" />
-                    <div className="restaurant-info">
-                        <h3>Pasta Palace</h3>
-                        <p>Italian, Pasta • ★★★★☆</p>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     )
