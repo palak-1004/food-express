@@ -376,3 +376,80 @@ header {
         width: 90%;
     }
 }
+
+/* help page */
+
+
+.help-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.help-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.help-section {
+    margin-bottom: 40px;
+}
+
+.help-section h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.faq {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.faq:hover {
+    background: #f1f1f1;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    margin-bottom: 8px;
+}
+
+.help-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.help-form input,
+.help-form textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.help-form textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+.help-form button {
+    padding: 10px;
+    border: none;
+    background-color: #ff4d4f;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.help-form button:hover {
+    background-color: #e63946;
+}
