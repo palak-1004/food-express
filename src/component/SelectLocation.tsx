@@ -41,7 +41,6 @@ export default function SelectLocation() {
     const [address, setAddress] = useState<string>("");
     const [suggestions, setSuggestions] = useState<any[]>([]);
 
-    // ✅ Using tuple [lat, lng]
     const [location, setLocation] = useState<[number, number]>([
         28.6139,
         77.2090,
@@ -51,7 +50,7 @@ export default function SelectLocation() {
         (state) => state.setLocation
     );
 
-    // 📍 Current Location
+    // Current
     const handleCurrentLocation = () => {
         navigator.geolocation.getCurrentPosition(
             (pos) => {
@@ -68,7 +67,7 @@ export default function SelectLocation() {
         );
     };
 
-    // 🔍 Search using OpenStreetMap
+    // Street map search
     const handleSearch = async (value: string) => {
         setAddress(value);
 
@@ -84,14 +83,13 @@ export default function SelectLocation() {
         setSuggestions(data);
     };
 
-    // Select suggestion
     const handleSelect = (place: any) => {
         setAddress(place.display_name);
 
         setLocation([
             parseFloat(place.lat),
             parseFloat(place.lon),
-        ]); // ✅ FIXED
+        ]); 
 
         setSuggestions([]);
     };
@@ -112,7 +110,6 @@ export default function SelectLocation() {
     return (
         <div className="p-4 space-y-4 max-w-md mx-auto">
 
-            {/* 🔍 Search */}
             <div>
                 <input
                     value={address}
@@ -134,15 +131,13 @@ export default function SelectLocation() {
                 </div>
             </div>
 
-            {/* 📍 Current Location */}
-            <button
+x            <button
                 onClick={handleCurrentLocation}
                 className="w-full p-3 bg-green-500 text-white rounded-lg"
             >
                 Use Current Location
             </button>
 
-            {/* 🗺️ Map */}
             <MapContainer
                 center={location}
                 zoom={15}
@@ -159,7 +154,6 @@ export default function SelectLocation() {
                     setAddress={setAddress}
                 />            </MapContainer>
 
-            {/* ✅ Confirm */}
             <button
                 className="w-full p-3 bg-black text-white rounded-lg"
                 onClick={() => {

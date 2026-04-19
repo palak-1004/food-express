@@ -1,4 +1,3 @@
-import React from 'react';
 import Navbar from '../component/Navbar';
 import Footer from '../component/Footer';
 import { useCartStore } from '../types/useCartStore';
@@ -15,7 +14,6 @@ export default function Cart() {
     const handleCheckout = () => {
         if (items.length === 0) return;
 
-        // Group items to list them out in the order
         const itemSummary = items.map(i => `${i.name} x ${i.quantity}`).join(', ');
         const restaurantName = items[0]?.restaurantName || 'Mixed Restaurants';
 

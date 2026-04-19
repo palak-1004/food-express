@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../component/Navbar';
 import Footer from '../component/Footer';
@@ -27,7 +27,6 @@ export default function CategoryFiltered() {
 
             data.forEach((res: any) => {
                 res.foods.forEach((food: any) => {
-                    // Filter matching foods directly or randomly if the term matches the restaurant
                     if (food.name.toLowerCase().includes(term) || res.name.toLowerCase().includes(term) || term === 'all' || categoryName) {
                         allFoods.push({
                             itemId: `${res.id}-${food.name}`,
@@ -40,7 +39,6 @@ export default function CategoryFiltered() {
                 });
             });
 
-            // Limit to just matched or mock return some items so page isn't empty if the static data doesn't perfectly align.
             setFoods(allFoods.slice(0, 12));
         };
         fetchAndFilter();

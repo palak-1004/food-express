@@ -5,7 +5,6 @@ export default function HelpPage() {
         <div className="help-container">
             <h1 className="help-title">Help & Support</h1>
 
-            {/* FAQ Section */}
             <section className="help-section">
                 <h2>Frequently Asked Questions</h2>
 
@@ -40,7 +39,6 @@ export default function HelpPage() {
                 </div>
             </section>
 
-            {/* Contact Support */}
             <section className="help-section">
                 <h2>Contact Support</h2>
                 <p>If you need further help, reach out to us:</p>
@@ -51,7 +49,6 @@ export default function HelpPage() {
                 </ul>
             </section>
 
-            {/* Report Issue */}
             <section className="help-section">
                 <h2>Report an Issue</h2>
 

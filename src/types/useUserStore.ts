@@ -5,13 +5,13 @@ export type PastOrder = {
     id: string;
     date: string;
     total: number;
-    items: string; // Brief string like "Pizza x 1, Cola x 2"
+    items: string; 
     restaurantName: string;
 };
 
 export type Address = {
     id: string;
-    tag: string; // HOME, WORK, etc
+    tag: string; 
     title: string;
     text: string;
 }

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 export type CartItem = {
-    id: string; // Unique identifier for the food item (e.g., res.id + food.name)
+    id: string; 
     restaurantId: string;
     restaurantName: string;
     name: string;

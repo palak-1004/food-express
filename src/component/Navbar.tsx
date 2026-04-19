@@ -2,7 +2,7 @@ import '../styles/home.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocationStore } from "../types/useLocationStore";
 import { useState } from "react";
-import { searchApi } from "../api/searchApi"; // ✅ API import
+import { searchApi } from "../api/searchApi";
 import { useCartStore } from "../types/useCartStore";
 
 export default function Navbar() {
@@ -16,7 +16,6 @@ export default function Navbar() {
 
     const cartCount = getTotalItems();
 
-    // ✅ FUNCTION WHERE API IS USED
     const handleSearchChange = async (value: string) => {
         setQuery(value);
 
@@ -37,7 +36,6 @@ export default function Navbar() {
             </div>
 
             <div className="nav-center">
-                {/* LOCATION */}
                 <div
                     className="locationBar"
                     onClick={() => navigate("/select-location")}
@@ -48,7 +46,6 @@ export default function Navbar() {
                     </span>
                 </div>
 
-                {/* SEARCH */}
                 <div className="search-wrapper">
 
                     <div className="nav-search">
@@ -65,7 +62,6 @@ export default function Navbar() {
                         <button onClick={() => handleSearchChange(query)}>🔍</button>
                     </div>
 
-                    {/* 🔥 MOVE DROPDOWN HERE (OUTSIDE nav-search) */}
                     {results.length > 0 && (
                         <div className="search-dropdown">
                             {results.map((item) => (

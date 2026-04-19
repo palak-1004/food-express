@@ -33,15 +33,15 @@ export default function Resto({ restaurants }: Props) {
             <div className="restaurant-list">
                 {restaurants.map((res) => (
                     <div className="restaurant" key={res.id}>
-                        <img 
-                            src={`https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500&q=80&random=${res.id}`} 
-                            alt={res.name} 
+                        <img
+                            src={`https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500&q=80&random=${res.id}`}
+                            alt={res.name}
                             style={{ height: '200px', objectFit: 'cover' }}
                             onClick={() => navigate(`/restaurant/${res.id}`)}
                         />
 
                         <div className="restaurant-info">
-                            <h3 
+                            <h3
                                 onClick={() => navigate(`/restaurant/${res.id}`)}
                                 style={{ cursor: 'pointer' }}
                             >
@@ -49,7 +49,6 @@ export default function Resto({ restaurants }: Props) {
                             </h3>
                             <p>{res.location}</p>
 
-                            {/* food*/}
                             <div className="food-list">
                                 {res.foods?.slice(0, 2).map((food, i) => {
                                     const itemId = `${res.id}-${food.name}`

@@ -14,11 +14,11 @@ export default function Profile() {
         if (user) {
             setUsername(user);
         } else {
-            navigate("/"); // redirect to login if not logged in
+            navigate("/");
         }
     }, [navigate]);
 
-    if (!username) return null; // Avoid rendering if redirecting
+    if (!username) return null; 
 
     const initials = username.substring(0, 2).toUpperCase();
 
@@ -58,7 +58,6 @@ export default function Profile() {
                 <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '24px', color: '#111827' }}>My Profile</h1>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '24px' }}>
-                    {/* Sidebar / Photo */}
                     <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '32px 24px', textAlign: 'center', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', height: 'fit-content' }}>
                         <div style={{ width: '120px', height: '120px', borderRadius: '50%', backgroundColor: '#eab308', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '48px', margin: '0 auto 16px', fontWeight: 'bold' }}>
                             {initials}
@@ -78,9 +77,7 @@ export default function Profile() {
                         </button>
                     </div>
                     
-                    {/* Main Content */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                        {/* Saved Addresses */}
                         <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '24px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                             <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '16px', color: '#111827', borderBottom: '1px solid #e5e7eb', paddingBottom: '12px' }}>Saved Addresses</h3>
                             
@@ -103,7 +100,6 @@ export default function Profile() {
                             </button>
                         </div>
                         
-                        {/* Recent Orders */}
                         <div style={{ backgroundColor: '#fff', borderRadius: '12px', padding: '24px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                             <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '16px', color: '#111827', borderBottom: '1px solid #e5e7eb', paddingBottom: '12px' }}>Recent Orders</h3>
                             

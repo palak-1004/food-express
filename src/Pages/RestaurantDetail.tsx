@@ -45,11 +45,11 @@ export default function RestaurantDetail() {
     return (
         <div style={{ backgroundColor: '#f9fafb', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <Navbar />
-            
+
             <div style={{ alignSelf: 'stretch', height: '250px', position: 'relative' }}>
-                <img src={`https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&random=${restaurant.id}`} 
-                     alt={restaurant.name} 
-                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={`https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&random=${restaurant.id}`}
+                    alt={restaurant.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)' }}></div>
                 <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', maxWidth: '1200px', margin: '0 auto' }}>
                     <button onClick={() => navigate(-1)} style={{ background: 'rgba(255,255,255,0.2)', border: 'none', color: '#fff', padding: '8px 16px', borderRadius: '4px', cursor: 'pointer', marginBottom: '16px', backdropFilter: 'blur(4px)' }}>
@@ -96,7 +96,7 @@ export default function RestaurantDetail() {
                     })}
                 </div>
             </div>
-            
+
             <Footer />
         </div>
     );
